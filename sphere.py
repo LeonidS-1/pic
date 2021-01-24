@@ -13,7 +13,7 @@ try:
         for event in pg.event.get():
             if event.type ==pg.QUIT:
                 exit()
-        pg.draw.ellipse(win, (255, 255, 255), (0, 0, H, W), 1)
+        
         for i in range(n):
             pg.draw.ellipse(win, (255, 255, 255), (0+xn*i, 0, H-xn*i*2, W), 1)
             pg.draw.ellipse(win, (255, 255, 255), (0, 0+xn*i, H, W-xn*i*2), 1)
