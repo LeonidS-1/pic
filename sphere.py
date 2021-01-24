@@ -1,24 +1,38 @@
+a = input()
 n = input()
 try:
+    a = int(a)
     n = int(n)
-    #n = 10
-    import pygame as pg
-    W = 500
-    H = 500
-    pg.init()
-    win = pg.display.set_mode((W, H))
-    win2 = pg.display.set_mode((W, H))
-    xn = 500//n//2
-    while H:
-        for event in pg.event.get():
-            if event.type ==pg.QUIT:
-                exit()
-        
-        for i in range(n):
-            pg.draw.ellipse(win, (255, 255, 255), (0+xn*i, 0, H-xn*i*2, W), 1)
-            pg.draw.ellipse(win, (255, 255, 255), (0, 0+xn*i, H, W-xn*i*2), 1)
+    if a%n!=0:
+        print('Неправильный формат ввода')
+        exit()
 
-        pg.display.update() 
 except:
     print('Неправильный формат ввода')
     exit()
+import pygame as pg
+step = a//n
+pg.init()
+win = pg.display.set_mode((a, a))
+ycord = 0
+for i in range(a//2): 
+
+    for i in range(a): 
+        if i %2!=0:
+            pg.draw.rect(win, (255, 255, 255), (i*step, ycord, step, step))
+
+    ycord+=step
+
+    for i in range(a): 
+        if i %2==0:
+            pg.draw.rect(win, (255, 255, 255), (i*step, ycord, step, step))
+
+    ycord+=step
+
+pg.display.update() 
+
+while a:
+    for event in pg.event.get():
+        if event.type ==pg.QUIT:
+            exit()
+    
